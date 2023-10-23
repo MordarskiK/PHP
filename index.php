@@ -1,137 +1,159 @@
 <?php
-    // $num1 = 10;
-    // $num2 = 5;
-    // $oper = "/";  //["+","-","*","/","%","**"]
+    
+    // $cena = array(
+    //     'jogurt' => '2.50zł',
+    //     'mleko' => '1.50zł',
+    //     'masło' => '5zł',
+    //     'ser' => '0.50zł'
+    // );
 
-    // function add($num1,$num2){
-    //     return $num1 + $num2;
+    // krsort($cena);
+
+    // sort($cena;)
+    // rsort($cena);
+    // asort($cena);
+    // ksort($cena);
+    // srsort($cena);
+    // krsort($cena);
+
+    // foreach ($cena as $klucz => $wartosc)
+    // echo $klucz." kosztuje ".$wartosc."<br>\n";
+
+
+    // $array1 = array(
+    //     'array2' => $array2 = array(
+    //         'witam' => '1',
+    //         'świat' => '2'
+    //     ),
+    //     'array3' => $array3 = array(
+    //         'hello' => '3',
+    //         'world' => '4'
+    //     ),
+        
+    // );
+
+    // $array4 = array(
+    //     'ar1' => array(
+    //         'ar' => '1',
+    //         'ar2' => '2',
+    //     ),
+    //     'ar2' => array(
+    //         'ar' => '2'
+    //     ),
+    // );
+
+    // var_dump($array1);
+    // echo '<br>';
+    // echo '<br>';
+    // var_dump($array4);
+
+
+    // foreach ($array1 as $ar => $asset){
+    //     echo $ar." "."<br>";
+    //     var_dump($asset);
+    //     echo '<br>';
+    //     foreach ($asset as $ar2 => $value){
+    //         var_dump($value);
+    //         echo '<br>';
+    //         echo $ar2 ." ". $value ."<br>";
+    //     }
     // }
-    // function sub($num1,$num2){
-    //     return $num1 - $num2;
-    // }
-    // function mult($num1,$num2){
-    //     return $num1 * $num2;
-    // }
-    // function divi($num1,$num2){
-    //     if ($num2 == 0){
-    //         return "Openhaimer moment";
+
+    // $osoba1 = array (
+    //     'A',
+    //     'B'
+    // );
+    // $osoba2 = array (
+    //     'os3' => 'C',
+    //     'os4' => 'D'
+    // );
+
+    // $twoside = [];
+    // $twoside[0] = $osoba1;
+    // $twoside[1] = $osoba2;
+
+    // // print_r($osoba1);
+    // print_r($twoside[0][0]);
+    // print($osoba2['os3']);
+    // // print_r($twoside[0]['os1']);
+
+    // var_dump(sizeof($twoside));
+    // var_dump(count($twoside));
+
+    // $array = [];
+
+    // function fib($n){
+    //     if($n == 0){ 
+    //         return 0;
+    //     }
+    //     else if ($n == 1){
+    //         return 1;
     //     }
     //     else{
-    //         return $num1 / $num2;
+    //        return fib($n-1) + fib($n-2);
     //     }
-    // }
-    // function modulo($num1,$num2){
-    //     return $num1 % $num2;
-    // }
-    // function power($num1,$num2){
-    //     return $num1 ** $num2;
-    // }
+    // };
 
-    // switch ($oper){
-    //     case "+":
-    //         echo add($num1,$num2);
-    //         break;
-    //     case "-":
-    //         echo sub($num1,$num2);
-    //         break;
-    //     case "*":
-    //         echo mult($num1,$num2);
-    //         break;
-    //     case "/":
-    //         echo divi($num1,$num2);
-    //         break;
-    //     case "%":
-    //         echo modulo($num1,$num2);
-    //         break;
-    //     case "**":
-    //         echo power($num1,$num2);
-    //         break;
-    //     default:
-    //         echo "somethings wrong I can feel it";
-    // }
-
-    // function grade($num){
-    //     switch (TRUE){
-    //         case $num>=0 and $num<=39:
-    //             echo "niedostateczny";
-    //             break;
-    //         case $num>=40 and $num<=49:
-    //             echo "dopuszczający";
-    //             break;
-    //         case $num>=50 and $num<=75:
-    //             echo "dostateczny";
-    //             break;
-    //         case $num>=76 and $num<=89:
-    //             echo "dobry";
-    //             break;
-    //         case $num>=90 and $num<=97:
-    //             echo "bradzo dobry";
-    //             break;
-    //         case $num>=98 and $num<=100:
-    //             echo "celujący";
-    //             break;
-    //         default:
-    //             echo "cos ty dostał za ocene!?";
+    // function zad1_1($array){
+    //     for($i=0;$i<=100;$i++){
+    //         $array[$i]=fib($i);
+    //         echo $array[$i]."<br>";
     //     }
-    // }
-
-    // grade(0)
-
-    // function leapYear($year){
-    //     if($year%4==0){
-    //         echo "rok przestępny";
+    // };
+    
+    // function zad1_2($array){
+    //     $pow = 2;
+    //     for($i=0;$i<=100;$i++){
+    //         $array[$i]=$pow;
+    //         $pow = $pow * 2;
+    //         echo $array[$i]."<br>";
     //     }
-    //     else{
-    //         echo "nie rok przestępny";
-    //     }
-    // }
+    // };
 
-    // leapYear(2020)
-
-    // function triangle($num1,$num2,$num3){
-    //     if ($num1 + $num2 > $num3 and $num3 + $num2 > $num1 and $num1 + $num3 > $num1){
-    //         echo "można zrobić tójkąt";
+    // function zad1_3($array){
+    //     $n = 3;
+    //     for($i=0;$i<=100;$i++){
+    //         $array[$i]=$n;
+    //         $n = $n + 3;
+    //         echo $array[$i]."<br>";
     //     }
-    //     else {
-    //         echo "nie można zrobić trójkąta";
-    //     }
-    // }
+    // };
 
-    // triangle(3,4,5)
+    // // zad1_1($array);
+    // // zad1_2($array);
+    // // zad1_3($array);
 
     
-    function passStrenght($haslo){
-        if (strlen($haslo) < 4){
-            echo "hasło słabe";
-        }
-        elseif (strlen($haslo) < 8){
-            echo "hasło średnie";
-        }
-        elseif (strlen($haslo) >= 8){
-            echo "hasło mocne";
-        }
+    $array = [1,2,3,4,5,6,-1,7,8,9,10];
 
-        if (preg_match('~[0-9]+~', $haslo)) {
-            echo "hasło mocne";
-        }
-        else{
-            echo "haslo słabe";
-        }
+    function zad2_1($array){
+        echo max($array)."<br>";
+        echo min($array);
+    };
 
-        if (ctype_upper($haslo)){
-            echo "hasło mocne";
+    function zad2_2($array){
+        $num = 0;
+        for($i=0;$i<sizeof($array);$i++){
+            $num += $array[$i];
         }
-        else{
-            echo "haslo słabe";
-        }
+        echo $num/sizeof($array);
+    };
 
-        if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $haslo)){
-            echo "hasło mocne";
+    function zad2_3($array){
+        $num = 0;
+        for($i=0;$i<sizeof($array);$i++){
+            if($array[$i]==3){
+                $num += 1;
+            }
         }
-        else{
-            echo "haslo słabe";
-        }
-    }
+        echo $num;
+    };
 
-    passStrenght('Haslo12!@');
+
+
+
+    // zad2_1($array);
+    // zad2_2($array);
+    // zad2_3($array);
+
 ?>
