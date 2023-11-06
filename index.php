@@ -1,159 +1,79 @@
 <?php
-    
-    // $cena = array(
-    //     'jogurt' => '2.50zł',
-    //     'mleko' => '1.50zł',
-    //     'masło' => '5zł',
-    //     'ser' => '0.50zł'
-    // );
-
-    // krsort($cena);
-
-    // sort($cena;)
-    // rsort($cena);
-    // asort($cena);
-    // ksort($cena);
-    // srsort($cena);
-    // krsort($cena);
-
-    // foreach ($cena as $klucz => $wartosc)
-    // echo $klucz." kosztuje ".$wartosc."<br>\n";
+   // echo "Hello world"
+   // var_dump("Hello world")
+   // print "Hello World"
+   // var_dump(strtok("Hello World","HW"));
 
 
-    // $array1 = array(
-    //     'array2' => $array2 = array(
-    //         'witam' => '1',
-    //         'świat' => '2'
-    //     ),
-    //     'array3' => $array3 = array(
-    //         'hello' => '3',
-    //         'world' => '4'
-    //     ),
-        
-    // );
-
-    // $array4 = array(
-    //     'ar1' => array(
-    //         'ar' => '1',
-    //         'ar2' => '2',
-    //     ),
-    //     'ar2' => array(
-    //         'ar' => '2'
-    //     ),
-    // );
-
-    // var_dump($array1);
-    // echo '<br>';
-    // echo '<br>';
-    // var_dump($array4);
+   // echo str_word_count("Hello world!");
+   // echo strrev("Hello World!");
+   // var_dump(strpos("Hello World!","o W"));
+   // echo str_replace("world", "Dolly", "Hello world!");
+   // var_dump(is_string(1));
+   // echo str_repeat("Hello ",5);
+   // echo str_shuffle("Hello World!");
 
 
-    // foreach ($array1 as $ar => $asset){
-    //     echo $ar." "."<br>";
-    //     var_dump($asset);
-    //     echo '<br>';
-    //     foreach ($asset as $ar2 => $value){
-    //         var_dump($value);
-    //         echo '<br>';
-    //         echo $ar2 ." ". $value ."<br>";
-    //     }
-    // }
+   // konieczny.testportal.pl
+   // hasło: szepty
 
-    // $osoba1 = array (
-    //     'A',
-    //     'B'
-    // );
-    // $osoba2 = array (
-    //     'os3' => 'C',
-    //     'os4' => 'D'
-    // );
 
-    // $twoside = [];
-    // $twoside[0] = $osoba1;
-    // $twoside[1] = $osoba2;
 
-    // // print_r($osoba1);
-    // print_r($twoside[0][0]);
-    // print($osoba2['os3']);
-    // // print_r($twoside[0]['os1']);
+   function is_palindrom($string){
+      $string = strtolower(str_replace(" ","",$string));
+      if($string==strrev($string)){
+         echo "palindrom";
+      }
+      else{
+         echo "nie palindrom";
+      };
+   }
 
-    // var_dump(sizeof($twoside));
-    // var_dump(count($twoside));
+   // is_palindrom("Do gees see God");
+   // echo "<br>";
+   // is_palindrom("okok");
 
-    // $array = [];
 
-    // function fib($n){
-    //     if($n == 0){ 
-    //         return 0;
-    //     }
-    //     else if ($n == 1){
-    //         return 1;
-    //     }
-    //     else{
-    //        return fib($n-1) + fib($n-2);
-    //     }
-    // };
+   function is_isogram($string){
+      $str = str_split(strtolower(str_replace(" ","",$string)));
+      sort($str);
 
-    // function zad1_1($array){
-    //     for($i=0;$i<=100;$i++){
-    //         $array[$i]=fib($i);
-    //         echo $array[$i]."<br>";
-    //     }
-    // };
-    
-    // function zad1_2($array){
-    //     $pow = 2;
-    //     for($i=0;$i<=100;$i++){
-    //         $array[$i]=$pow;
-    //         $pow = $pow * 2;
-    //         echo $array[$i]."<br>";
-    //     }
-    // };
+      for($i = 0; $i<strlen($string)-1;$i++){
+         if ($str[$i]==$str[$i+1]){
+            return "False";
+         }
+      }
+      return "True";
+   }
 
-    // function zad1_3($array){
-    //     $n = 3;
-    //     for($i=0;$i<=100;$i++){
-    //         $array[$i]=$n;
-    //         $n = $n + 3;
-    //         echo $array[$i]."<br>";
-    //     }
-    // };
-
-    // // zad1_1($array);
-    // // zad1_2($array);
-    // // zad1_3($array);
-
-    
-    $array = [1,2,3,4,5,6,-1,7,8,9,10];
-
-    function zad2_1($array){
-        echo max($array)."<br>";
-        echo min($array);
-    };
-
-    function zad2_2($array){
-        $num = 0;
-        for($i=0;$i<sizeof($array);$i++){
-            $num += $array[$i];
-        }
-        echo $num/sizeof($array);
-    };
-
-    function zad2_3($array){
-        $num = 0;
-        for($i=0;$i<sizeof($array);$i++){
-            if($array[$i]==3){
-                $num += 1;
-            }
-        }
-        echo $num;
-    };
+   // echo is_isogram("abcd");
+   // echo is_isogram("abcda");
 
 
 
 
-    // zad2_1($array);
-    // zad2_2($array);
-    // zad2_3($array);
+   function is_pangram($string){
+      $str = str_split(strtolower(str_replace(",","",str_replace(" ","",$string))));
+      sort($str);
+      $alphabet = range("a","z");
 
+      for($i = 0; $i<strlen($string)-1;$i++){
+         while($str[$i]==$str[$i+1]){
+            $str = array_pop($str[$i]);
+         }
+         if ($str[$i]==$alphabet[$i]){ 
+            continue;
+         }
+         else{
+            return "False";
+         }
+      }
+      return "True";
+      
+   };
+   echo is_pangram("aabcdefghijklmnopqrstuvwxyz")
+   // echo is_pangram("Waltz, bad nymph, for quick jigs vex")
+   // echo is_pangram("The job requires extra pluck and zeal from every young wage earner")
+
+   
 ?>
