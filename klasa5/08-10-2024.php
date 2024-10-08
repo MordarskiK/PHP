@@ -6,18 +6,25 @@ for ($i = 0;$i<10;$i++){
 }
 
 //zad2
+echo "-----------------zad2-----------------<br>";
+foreach($randArray as $elem){
+    echo "$elem ";
+}
+echo "<br>";
 print_r($randArray);
 echo "<br>";
 
 //zad3
+echo "-----------------zad3-----------------<br>";
 foreach($randArray as $elem){
     if($elem%5==0){
-        echo "$elem, ";
+        echo "$elem ";
     }
 }
 echo "<br>";
 
 //zad4
+echo "-----------------zad4-----------------<br>";
 $num = 0;
 foreach($randArray as $elem){
     if($elem>10){
@@ -27,6 +34,7 @@ foreach($randArray as $elem){
 echo "$num<br>";
 
 //zad5
+echo "-----------------zad5-----------------<br>";
 $iloczyn = 1;
 $j = 1;
 foreach($randArray as $elem){
@@ -38,11 +46,12 @@ foreach($randArray as $elem){
 echo "$iloczyn<br>";
 
 //zad6
-$data = mktime(8,10,0,10,8,2024);
+echo "-----------------zad6-----------------<br>";
 $miesiac = array('XII',"I","II","II","IV","V","VI","VII","VIII","IX","X","XI");
-echo "Dzis jest ".date("d",$data).".".$miesiac[date("m",$data)].".".date("Y",$data)." rok<br>Aktualna godzina to: ".date("H:i",$data)."<br>";
+echo "Dzis jest ".date("d").".".$miesiac[date("m")].".".date("Y")." rok<br>Aktualna godzina to: ".date("H:i")."<br>";
 
 //zad7
+echo "-----------------zad7-----------------<br>";
 function zad7($x){
     if($x%3==0){
         echo "liczba $x jest podzielna przez 3";
