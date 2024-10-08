@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firma IT</title>
+    <link rel="stylesheet" href="styl.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+<body>
+    <div class="all">
+        <header>
+            <div class="logo"><img src="logo.png" alt="firma it"></div>
+            <div class="menu">
+                <a href="index.html">Strona główna</a>
+                <a href="uslugi.html">Usługi</a>
+                <a href="kontakt.html">Kontakt</a>
+            </div>
+        </header>
+        <div class="baner">
+            <img src="animacja.gif" alt="Usługi informatyczne">
+        </div>
+        <main>
+            <h2>Kontakt</h2>
+            <table>
+                <tr>
+                    <td>Imię:</td>
+                    <td><input type="text" name="firstName" id="firstName"></td>
+                </tr>
+                <tr>
+                    <td>Nazwisko:</td>
+                    <td><input type="text" name="surName" id="surName"></td>
+                </tr>
+                <tr>
+                    <td>E-mail:</td>
+                    <td><input type="email" name="email" id="email"></td>
+                </tr>
+                <tr>
+                    <td>Zgłoszenie</td>
+                    <td><textarea name="report" id="report" rows="10" cols="40"></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="checkbox" name="Tos" id="Tos">Zapoznałam/em się z regulaminem</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button id="resetBtn">Resetuj</button>
+                        <button id="submitBtn">Prześlij</button>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+            <p id="display"></p>
+        </main>
+        <footer>Autor strony: <strong>Krzysztof</strong></footer>
+    </div>
+</body>
+</html>
+<script defer>
+    const firstName = document.querySelector("#firstName")
+    const surName = document.querySelector("#surName")
+    const email = document.querySelector("#email")
+    const report = document.querySelector("#report")
+
+    const Tos = document.querySelector("#Tos")
+    
+    const resetBtn = document.querySelector("#resetBtn")
+    const submitBtn = document.querySelector("#submitBtn")
+    
+    const display = document.querySelector("#display")
+
+    submitBtn.addEventListener('click', ()=>{
+        display.style.color = "black"
+        if(!Tos.checked){
+            display.innerHTML = "Musisz zapoznać się z regulaminem"
+            display.style.color = "red"
+        }else{
+            display.innerHTML = `${firstName.value.toUpperCase()} ${surName.value.toUpperCase()} <br> Treść Twojej sprawy: ${report.value}`
+            display.style.color = "navy"
+        }
+    })
+</script>
