@@ -1,0 +1,29 @@
+Czas do 06.12.2024
+
+Wymagania:
+- baza danych w sql
+- tablice (wiele)
+- strona internetowa html
+- intuicyjny wygląd strony
+- logowanie do kont
+
+Temat:
+- Biuro podróży
+
+Pomysł:
+baza danych:
+  - tablice:
+    - konta
+    - miejsca start ( jesli 01 , badź dal ofert )
+    - miejsca end ( jesli 01 , badź dal ofert )
+    - zapisane oferty
+    - zapinane bilety
+  - view:
+    - zapisane bilety dla kont
+html:
+  - strona główna (oferty)
+  - wyszukiwarka tras 
+  - logowanie
+  - rejestrowanie sie 
+  - kupno biletów
+  - strona biletów dla konta
