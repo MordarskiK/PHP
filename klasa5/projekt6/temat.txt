@@ -14,8 +14,8 @@ Pomysł:
 baza danych:
   - tablice:
     - konta
-    - miejsca start ( jesli 01 , badź dal ofert )
-    - miejsca end ( jesli 01 , badź dal ofert )
+    - miejsca start ( jesli 01 , badź dla ofert )
+    - miejsca end ( jesli 01 , badź dla ofert )
     - zapisane oferty
     - zapinane bilety
   - view:
@@ -27,3 +27,7 @@ html:
   - rejestrowanie sie 
   - kupno biletów
   - strona biletów dla konta
+  - mapka interaktywna google (jeśli dam rade)
+
+
+
