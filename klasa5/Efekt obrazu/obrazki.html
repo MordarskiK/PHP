@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efekty obrazu</title>
+    <link rel="stylesheet" href="styl.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <header>
+        <h2>Efekty na obrazach</h2>
+    </header>
+    <main>
+        <div class="sec">
+            <section id="sec1">
+                <img src="pszczola.jpg" alt="pszczola" id="pszczola_img">
+                <label for="pszczola_blur">
+                    <input type="radio" name="pszczola_efekt" id="pszczola_blur" value="blurr">Blur
+                </label>
+                <label for="pszczola_sepia">
+                    <input type="radio" name="pszczola_efekt" id="pszczola_sepia" value="sepia">Sepia
+                </label>
+                <label for="pszczola_negatyw">
+                    <input type="radio" name="pszczola_efekt" id="pszczola_negatyw" value="invert">Negatyw
+                </label>
+                <button id="pszczola_btn">Zastosuj</button>
+            </section>
+            <section id="sec2">
+                <img src="pomarancza.jpg" alt="drzewo pomarańczy" id="pomarancza_img">
+                <div>
+                    <button id="pomarancza_color_btn">Kolorowy</button>
+                    <button id="pomarancza_bw_btn">Biało czarny</button>
+                </div>
+            </section>
+        </div>
+        <div class="sec">
+            <section id="sec3">
+            <img src="owoce.jpg" alt="kosz pełen owoców" id="owoce_img">
+            <input type="range" name="owoce_slide" id="owoce_slide" min="1" max="100" value="100"><br>
+            <button id="owoce_btn">Zastosuj</button>
+            </section>
+            <section id="sec4">
+                <img src="zolw.jpg" alt="Żółw w wodzie" id="zolw_img">
+                <input type="range" name="zolw_slide" id="zolw_slide" min="1" max="250"><br>
+                <button id="zolw_btn">Zastosuj</button>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p><a href="http://www.css.com/" target="_blank">Zobacz inne efekty obrazu</a></p>
+        <p>Strone wykonał: KM&copy;</p>
+    </footer>
+</body>
+</html>
