@@ -20,6 +20,7 @@ baza danych:
     - zapinane bilety
   - view:
     - zapisane bilety dla kont
+    - oferty
 html:
   - strona główna (oferty)
   - wyszukiwarka tras 
@@ -27,7 +28,7 @@ html:
   - rejestrowanie sie 
   - kupno biletów
   - strona biletów dla konta
-  - mapka interaktywna google (jeśli dam rade)
+  - nawigacja (navbar)
 
 
 
