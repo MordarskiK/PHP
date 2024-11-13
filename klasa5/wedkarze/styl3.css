@@ -1,0 +1,61 @@
+*{
+    font-family: verdana;
+}
+
+
+div{
+    background-color: seagreen;
+    color: white;
+    line-height: 150px;
+    height: 260px;
+    font-size: 160%;
+}
+
+
+.left{
+    width: 75%;
+}
+
+.right{
+    width: 25%;
+    text-align: right;
+}
+
+main{
+    background-color: mintcream;
+    padding: 80px;
+}
+
+footer>div{
+    background-color: seagreen;
+    color: white;
+    width: 50% !important;
+    height: 70px;
+    text-align: center !important;
+    line-height: 0px;
+    font-size: 100%;
+}
+
+input{
+    margin-bottom:20px;
+}
+
+img{
+    box-shadow: 15px 15px 10px dimgray;
+}
+
+a{
+    text-decoration: none;
+    background-color: mintcream;
+    color: seagreen;
+    padding: 15px;
+    line-height: 70px   ;
+}
+
+header,footer{
+    display: flex;
+}
+
+label{
+    display: block;
+}
