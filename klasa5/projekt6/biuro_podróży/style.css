@@ -1,0 +1,27 @@
+:root {
+  --color1: #292f36;
+  --color2: #4ecdc4;
+  --color3: #f7fff7;
+  --color4: #ff6b6b;
+  --color5: #ffe66d;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  padding: 20px;
+}
+
+nav > ul {
+  list-style: none;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.hidden {
+  display: none;
+}
