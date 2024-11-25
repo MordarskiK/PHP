@@ -1,14 +1,12 @@
 <?php
-$server = 'localhost';
-$user = 'gosc';
-$pass = 'gosc';
-$database = 'biuro_podrozy';
+include 'server_connection.php';
 
-$conn = mysqli_connect($server,$user,$pass,$database);
+// $server = 'localhost';
+// $user = 'root';
+// $pass = '';
+// $database = 'biuro_podrozy';
 
-if(!$conn){
-    echo "Nie ma polaczenia z baza";
-}else{
+// $conn = mysqli_connect($server,$user,$pass,$database);
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +24,6 @@ if(!$conn){
             <li><a href="main_page.php">Strona główna</a></li>
             <li><a href="offers.php">Oferty</a></li>
             <li><a href="basket.php">Koszyk</a></li>
-            <li><a href="register.php">Rejestracja</a></li>
             <li><a href="login.php">Logowanie</a></li>
         </ul>
     </nav>
@@ -65,7 +62,3 @@ if(!$conn){
     </footer>
 </body>
 </html>
-
-<?php
-}
-?>
