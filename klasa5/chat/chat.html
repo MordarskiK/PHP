@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    <header>
+        <h2>Chat</h2>
+    </header>
+        <aside>
+        <h3>Chaty</h3>
+        <ul>
+            <li>Ogólny</li>
+            <li>Tematyczne
+                <ol>
+                    <li>Turystyczny</li>
+                    <li>Żeglarski</li>
+                    <li>Filatelistyczny</li>
+                    <li>Hodowla zwierzątek domowych</li>
+                </ol>
+            </li>
+        </ul>
+        <h3>Uczestnicy</h3>
+        <p>Jolanta Nowak</p>
+        <img src="Jolka.jpg" alt="Jolanta Nowak">
+        <p>Krzysztof Łukasiński</p>
+        <img src="Krzysiek.jpg" alt="Krzysztof Łukasiński">
+    </aside>
+    <main>
+        <div class="chat" id="chat">
+            <div class="msg msgJolka">
+                <img src="Jolka.jpg" alt="Jolanta Nowak">
+                <p>Cześć idziesz jutro do kina?</p>
+            </div>
+            <div class="msg msgKrzysiek">
+                <img src="Krzysiek.jpg" alt="Krzysztof Łukasiński"> 
+                <p>Tak! A ty?</p>
+            </div>
+        </div>
+        <label for="msgInput">
+            Wpisz wiadomość:
+            <input type="text" name="msgInput" id="msgInput">
+            <button id="msgBtn">Wyślij</button>
+        </label><br>
+        <button id="randBtn">Generuj losową odpowiedź</button>
+    </main>
+
+    <footer>
+        <h5>Chat wykonał: MK 5i</h5>
+    </footer>
+</body>
+</html>
+<script defer>
+    const msgBtn = document.getElementById('msgBtn')
+    const randBtn = document.getElementById('randBtn')
+    const chat = document.getElementById('chat')
+    
+    const msgtable = ["Świetnie!",
+                    "Kto gra główną rolę?",
+                    "Lubisz filmy Tego reżysera?",
+                    "Będę 10 minut wcześniej",
+                    "Może kupimy sobie popcorn?",
+                    "Ja wolę Colę",
+                    "Zaproszę jeszcze Grześka",
+                    "Tydzień temu też byłem w kinie na Diunie",
+                    "Ja funduję bilety"]
+
+    msgBtn.addEventListener('click', (evt)=>{
+        evt.preventDefault()
+        const msgInput = document.getElementById('msgInput')
+        msg = msgInput.value;
+        // console.log(msg)
+        chat.innerHTML += `<div class='msg msgJolka'><img src='Jolka.jpg' alt='Jolanta Nowak'><p>${msg}</p></div>`
+    })
+
+    randBtn.addEventListener('click', (evt)=>{
+        evt.preventDefault()
+        let rand = Math.floor(Math.random()*9);
+        console.log(rand);
+        chat.innerHTML += `<div class="msg msgKrzysiek">
+                            <img src="Krzysiek.jpg" alt="Krzysztof Łukasiński"> 
+                            <p>${msgtable[rand]}</p>
+                            </div>`
+
+    })
+</script>
