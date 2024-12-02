@@ -1,10 +1,14 @@
 <?php
+session_start();
+$_SESSION['hello'] = 'hello there';
+
 $server = 'localhost';
 $user = 'root';
 $pass = '';
 $database = 'biuro_podrozy';
 
 $conn = mysqli_connect($server,$user,$pass,$database);
+
 
 // if(!$conn){
 //     echo "Nie ma polaczenia z baza";

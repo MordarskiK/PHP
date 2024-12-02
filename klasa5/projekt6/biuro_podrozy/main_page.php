@@ -1,6 +1,7 @@
 <?php
 include 'server_connection.php';
 
+
 // $server = 'localhost';
 // $user = 'root';
 // $pass = '';
@@ -43,42 +44,44 @@ include 'server_connection.php';
             <h1>Twoja nowa przygoda już czeka!</h1>
             <h4><a href="#offers">Zapoznaj się z naszymi nowymi ofertami</a></h4>
         </div>
-        <div class="search"> 
+        <div class="search">
             <div class="where">
-                <label for="destination" id="destination_label">
-                    <h2>Gdzie:</h2>
-                    <input type="text" name="destination" id="destination_input" list="country">
-                    <datalist id="country">
-                        <?php
-                            $sql = mysqli_query($conn,"SELECT nazwa FROM kraje;");
-                            if(!$sql){
-                                echo "zapytanie nie dziala";
-                            }
-                            while($kraje = mysqli_fetch_array($sql)){
-                                echo "<option value='".$kraje['nazwa']."'>".$kraje['nazwa']."</option>";
-                            }
-                        ?>
-                    </datalist>
-                </label>
+                <h2>Gdzie:</h2>
             </div>
+            <div class="where_input"> 
+                <input type="text" name="destination" id="destination_input" list="country">
+                <datalist id="country">
+                    <?php
+                        $sql = mysqli_query($conn,"SELECT nazwa FROM kraje;");
+                        if(!$sql){
+                            echo "zapytanie nie dziala";
+                        }
+                        while($kraje = mysqli_fetch_array($sql)){
+                            echo "<option value='".$kraje['nazwa']."'>".$kraje['nazwa']."</option>";
+                        }
+                    ?>
+                </datalist>
+            </div>
+            
             <div class="when">
                 <h2>Kiedy:</h2>
-                <div class="when_input">
-                    <label for="when_start">
-                        <h4>OD</h4>
-                        <input type="date" name="when_start">
-                    </label>
-                    <label for="when_end">
-                        <h4>DO</h4>
-                        <input type="date" name="when_end">
-                    </label>
-                </div>
             </div>
-            <div class="how_many">
-                <label for="people">
-                <h2>Ile osób:</h2>
-                <input type="number" name="people" id="people">
+            <div class="when_input">
+                <label for="when_start">
+                    <h4>OD</h4>
+                    <input type="date" name="when_start">
                 </label>
+                <label for="when_end">
+                    <h4>DO</h4>
+                    <input type="date" name="when_end">
+                </label>
+            </div>
+
+            <div class="how_many">
+                <h2>Ile osób:</h2>    
+            </div>
+            <div class="how_many_input">
+                <input type="number" name="people" id="people">
             </div>
             <div class="search_btn_container">
                 <input type="submit" value="Szukaj" class="search_btn">

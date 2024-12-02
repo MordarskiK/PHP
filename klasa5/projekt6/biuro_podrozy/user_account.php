@@ -1,20 +1,20 @@
 <?php
 include 'server_connection.php';
 
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="logo.jpeg" type="image/x-icon">
     <title>Biuro podróży</title>
+    <link rel="shortcut icon" href="logo.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
-<header>    
+    <header>
         <div class="baner">
             <div class="logo">
                 <a href="main_page.php">
@@ -33,27 +33,11 @@ include 'server_connection.php';
         </div>
     </header>
     <main>
-        <div class="login">
-            <form action="login.php" method="post">
-                <div>
-                    <label for="user_login">
-                        <h3>Nazwa użytkownika, bądź email:</h3>
-                        <input type="text" name="user_login" id="user_login"> 
-                    </label>
-                    <label for="pass_login">
-                        <h3>Hasło:</h3>
-                        <input type="password" name="pass_login" id="pass_login">
-                    </label>
-                    <div>
-                        <input type="button" value="Zaloguj">
-                        <a href="register.php"><input type="button" value="Zarejestruj sie"></a>
-                    </div>
-                </div>
-            </form>
+        <div class="account"> 
             <?php
-                if(isset($_POST['user_login']) && isset($_POST['pass_login'])){
+            $acc_name = mysqli_query($conn, "SELECT users.name FROM users WHERE users.id_user = ")
 
-                }
+
             ?>
         </div>
     </main>
@@ -61,10 +45,6 @@ include 'server_connection.php';
         <div class="contact" id="contact">
            <h4>Strone wykonał: MK 5i</h4>
         </div>
-    </footer>           
+    </footer>
 </body>
 </html>
-
-<?php
-// INSERT INTO users(name,pass) VALUES("gosc","");
-?>
