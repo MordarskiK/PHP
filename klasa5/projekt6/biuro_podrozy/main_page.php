@@ -1,13 +1,11 @@
 <?php
 include 'server_connection.php';
 
+session_start();
 
-// $server = 'localhost';
-// $user = 'root';
-// $pass = '';
-// $database = 'biuro_podrozy';
+$_SESSION['log'] = true;
 
-// $conn = mysqli_connect($server,$user,$pass,$database);
+
 ?>
 
 <!DOCTYPE html>
@@ -45,47 +43,49 @@ include 'server_connection.php';
             <h4><a href="#offers">Zapoznaj się z naszymi nowymi ofertami</a></h4>
         </div>
         <div class="search">
-            <div class="where">
-                <h2>Gdzie:</h2>
-            </div>
-            <div class="where_input"> 
-                <input type="text" name="destination" id="destination_input" list="country">
-                <datalist id="country">
-                    <?php
-                        $sql = mysqli_query($conn,"SELECT nazwa FROM kraje;");
-                        if(!$sql){
-                            echo "zapytanie nie dziala";
-                        }
-                        while($kraje = mysqli_fetch_array($sql)){
-                            echo "<option value='".$kraje['nazwa']."'>".$kraje['nazwa']."</option>";
-                        }
-                    ?>
-                </datalist>
-            </div>
-            
-            <div class="when">
-                <h2>Kiedy:</h2>
-            </div>
-            <div class="when_input">
-                <label for="when_start">
-                    <h4>OD</h4>
-                    <input type="date" name="when_start">
-                </label>
-                <label for="when_end">
-                    <h4>DO</h4>
-                    <input type="date" name="when_end">
-                </label>
-            </div>
+            <form action="tickets.php" method="post">
+                <div class="where">
+                    <h2>Gdzie:</h2>
+                </div>
+                <div class="where_input"> 
+                    <input type="text" name="destination" id="destination_input" list="country">
+                    <datalist id="country">
+                        <?php
+                            $sql = mysqli_query($conn,"SELECT nazwa FROM kraje;");
+                            if(!$sql){
+                                echo "zapytanie nie dziala";
+                            }
+                            while($kraje = mysqli_fetch_array($sql)){
+                                echo "<option value='".$kraje['nazwa']."'>".$kraje['nazwa']."</option>";
+                            }
+                        ?>
+                    </datalist>
+                </div>
+                
+                <div class="when">
+                    <h2>Kiedy:</h2>
+                </div>
+                <div class="when_input">
+                    <label for="when_start">
+                        <h4>OD</h4>
+                        <input type="date" name="when_start">
+                    </label>
+                    <label for="when_end">
+                        <h4>DO</h4>
+                        <input type="date" name="when_end">
+                    </label>
+                </div>
 
-            <div class="how_many">
-                <h2>Ile osób:</h2>    
-            </div>
-            <div class="how_many_input">
-                <input type="number" name="people" id="people">
-            </div>
-            <div class="search_btn_container">
-                <input type="submit" value="Szukaj" class="search_btn">
-            </div>
+                <div class="how_many">
+                    <h2>Ile osób:</h2>    
+                </div>
+                <div class="how_many_input">
+                    <input type="number" name="people" id="people">
+                </div>
+                <div class="search_btn_container">
+                    <input type="submit" value="Szukaj" class="search_btn">
+                </div>
+            </form>
         </div>
         <div class="offers" id="offers">
             <?php

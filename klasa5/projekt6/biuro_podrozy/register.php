@@ -23,10 +23,10 @@ include 'server_connection.php';
             </div>
             <nav class="navbar">
                 <ul>
-                    <li><a href="#book_now">Zarezerwuj teraz</a></li>
-                    <li><a href="#offers">Oferty</a></li>
-                    <li><a href="#about_us">O nas</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
+                    <li><a href="main_page.php#book_now">Zarezerwuj teraz</a></li>
+                    <li><a href="main_page.php#offers">Oferty</a></li>
+                    <li><a href="main_page.php#about_us">O nas</a></li>
+                    <li><a href="main_page.php#contact">Kontakt</a></li>
                     <li><a href="login.php">Zaloguj się</a></li>
                 </ul>
             </nav>

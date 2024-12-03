@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2024 at 05:58 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Dec 03, 2024 at 11:45 AM
+-- Wersja serwera: 10.4.32-MariaDB
+-- Wersja PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kraje`
+-- Struktura tabeli dla tabeli `kraje`
 --
 
 CREATE TABLE `kraje` (
@@ -44,31 +44,33 @@ INSERT INTO `kraje` (`ID_kraje`, `Nazwa`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oferty`
+-- Struktura tabeli dla tabeli `oferty`
 --
 
 CREATE TABLE `oferty` (
   `id_oferty` int(11) NOT NULL,
   `id_kraj` int(11) DEFAULT NULL,
   `opis` varchar(255) DEFAULT NULL,
-  `rozpoczecie` date DEFAULT NULL,
-  `zakonczenie` date DEFAULT NULL
+  `date_start` date DEFAULT NULL,
+  `date_end` date DEFAULT NULL,
+  `cena` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `oferty`
 --
 
-INSERT INTO `oferty` (`id_oferty`, `id_kraj`, `opis`, `rozpoczecie`, `zakonczenie`) VALUES
-(1, 1, 'wakacje w Polsce jakich jeszcze nikt nie przeżył', '2025-07-13', '2025-07-26'),
-(2, 2, 'wakacje w Grecji jakich jeszcze nikt nie przeżył', '2025-07-13', '2025-07-26'),
-(3, 3, 'wakacje w Chorwacji jakich jeszcze nikt nie przeżył', '2025-07-13', '2025-07-26'),
-(4, 1, 'test opis', '2024-12-19', '2025-01-08');
+INSERT INTO `oferty` (`id_oferty`, `id_kraj`, `opis`, `date_start`, `date_end`, `cena`) VALUES
+(1, 1, 'wakacje w Polsce jakich jeszcze nikt nie przeżył', '2025-07-13', '2025-07-26', 100.75),
+(2, 2, 'wakacje w Grecji jakich jeszcze nikt nie przeżył', '2025-07-13', '2025-07-26', 250.2),
+(3, 3, 'wakacje w Chorwacji jakich jeszcze nikt nie przeżył', '2025-07-13', '2025-07-26', 280),
+(4, 1, 'test opis', '2024-12-19', '2025-01-08', 25.99),
+(5, 2, 'jest fajnie', '2024-12-03', '2025-12-03', 290);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktura tabeli dla tabeli `users`
 --
 
 CREATE TABLE `users` (
@@ -90,24 +92,24 @@ INSERT INTO `users` (`id_user`, `name`, `pass`, `e_mail`, `opinie`) VALUES
 (5, 'temp', 'temp_pass', 'temp@gmail.com', 'Strona 10/10');
 
 --
--- Indexes for dumped tables
+-- Indeksy dla zrzutów tabel
 --
 
 --
--- Indexes for table `kraje`
+-- Indeksy dla tabeli `kraje`
 --
 ALTER TABLE `kraje`
   ADD PRIMARY KEY (`ID_kraje`);
 
 --
--- Indexes for table `oferty`
+-- Indeksy dla tabeli `oferty`
 --
 ALTER TABLE `oferty`
   ADD PRIMARY KEY (`id_oferty`),
   ADD KEY `id_kraj` (`id_kraj`);
 
 --
--- Indexes for table `users`
+-- Indeksy dla tabeli `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`),
@@ -127,7 +129,7 @@ ALTER TABLE `kraje`
 -- AUTO_INCREMENT for table `oferty`
 --
 ALTER TABLE `oferty`
-  MODIFY `id_oferty` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_oferty` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

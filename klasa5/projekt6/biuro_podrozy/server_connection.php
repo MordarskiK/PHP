@@ -1,6 +1,4 @@
 <?php
-session_start();
-$_SESSION['hello'] = 'hello there';
 
 $server = 'localhost';
 $user = 'root';

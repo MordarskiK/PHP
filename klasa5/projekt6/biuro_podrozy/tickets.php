@@ -34,27 +34,28 @@ include 'server_connection.php';
         </div>
     </header>
     <main>
-        <div class="login">
-            <form action="login.php" method="post">
-                <div>
-                    <label for="user_login">
-                        <h3>Nazwa użytkownika, bądź email:</h3>
-                        <input type="text" name="user_login" id="user_login"> 
-                    </label>
-                    <label for="pass_login">
-                        <h3>Hasło:</h3>
-                        <input type="password" name="pass_login" id="pass_login">
-                    </label>
-                    <div>
-                        <input type="button" value="Zaloguj">
-                        <a href="register.php"><input type="button" value="Zarejestruj sie"></a>
-                    </div>
-                </div>
-            </form>
+        <div class='offers'>
             <?php
-                if(isset($_POST['user_login']) && isset($_POST['pass_login'])){
+            if(!isset($_POST['destination']) || !isset($_POST['when_start']) || !isset($_POST['when_end']) || !isset($_POST['people'])){
+                header("Location:main_page.php");
+                exit();
+            }else{
+                $destination = $_POST['destination'];
+                $start = $_POST['when_start'];
+                $end = $_POST['when_end'];
+                $people = $_POST['people'];
+
+                $offers = mysqli_query($conn, "SELECT * FROM oferty WHERE date_start >= '$start' AND date_end<= '$end'");
+                if(!$offers){
+                    echo "<h3>Brak ofert z twoimi specyfikacjami</h3>";
 
                 }
+                while($offer = mysqli_fetch_row($offers)){
+                    print_r($offer);
+                    $kraj = mysqli_fetch_row(mysqli_query($conn,"SELECT Nazwa FROM kraje WHERE ID_kraje = $offer[id_kraj]"));
+                    echo "<div class='offer'><h2>".$kraj[0]."</h2><h3>".$offer['opis']."</h3><h3>od ".$offer['date_start']." do ".$offer['date_end']."</h3></div>";
+                }
+            }
             ?>
         </div>
     </main>
