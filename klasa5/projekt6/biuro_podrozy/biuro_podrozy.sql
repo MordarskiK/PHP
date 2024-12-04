@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2024 at 11:45 AM
+-- Generation Time: Dec 04, 2024 at 11:46 AM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -51,8 +51,7 @@ CREATE TABLE `oferty` (
   `id_oferty` int(11) NOT NULL,
   `id_kraj` int(11) DEFAULT NULL,
   `opis` varchar(255) DEFAULT NULL,
-  `date_start` date DEFAULT NULL,
-  `date_end` date DEFAULT NULL,
+  `daty` date DEFAULT NULL,
   `cena` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -60,12 +59,12 @@ CREATE TABLE `oferty` (
 -- Dumping data for table `oferty`
 --
 
-INSERT INTO `oferty` (`id_oferty`, `id_kraj`, `opis`, `date_start`, `date_end`, `cena`) VALUES
-(1, 1, 'wakacje w Polsce jakich jeszcze nikt nie przeżył', '2025-07-13', '2025-07-26', 100.75),
-(2, 2, 'wakacje w Grecji jakich jeszcze nikt nie przeżył', '2025-07-13', '2025-07-26', 250.2),
-(3, 3, 'wakacje w Chorwacji jakich jeszcze nikt nie przeżył', '2025-07-13', '2025-07-26', 280),
-(4, 1, 'test opis', '2024-12-19', '2025-01-08', 25.99),
-(5, 2, 'jest fajnie', '2024-12-03', '2025-12-03', 290);
+INSERT INTO `oferty` (`id_oferty`, `id_kraj`, `opis`, `daty`, `cena`) VALUES
+(1, 1, 'wakacje w Polsce jakich jeszcze nikt nie przeżył', '2024-12-23', 100.75),
+(2, 2, 'wakacje w Grecji jakich jeszcze nikt nie przeżył', '2025-01-16', 250.2),
+(3, 3, 'wakacje w Chorwacji jakich jeszcze nikt nie przeżył', '2024-12-25', 280),
+(4, 1, 'test opis', '2025-01-02', 25.99),
+(5, 2, 'jest fajnie', '2025-01-04', 290);
 
 -- --------------------------------------------------------
 

@@ -34,29 +34,43 @@ include 'server_connection.php';
         </div>
     </header>
     <main>
-        <div class='offers'>
-            <?php
-            if(!isset($_POST['destination']) || !isset($_POST['when_start']) || !isset($_POST['when_end']) || !isset($_POST['people'])){
-                header("Location:main_page.php");
-                exit();
-            }else{
-                $destination = $_POST['destination'];
-                $start = $_POST['when_start'];
-                $end = $_POST['when_end'];
-                $people = $_POST['people'];
+        <div class='tickets'>
+            <div class="available">
+                <h1>Dostępne oferty w podanym terminie</h1>
+                <div class='offers'>
+                    <form action="#" method="post">
+                        <?php
+                        if(empty($_POST['when_start']) || empty($_POST['when_end'])){
+                            header("Location:main_page.php");
+                            exit();
+                        }else{
+                            // $destination = $_POST['destination'];   
+                            $start = $_POST['when_start'];
+                            $end = $_POST['when_end'];
+                            // $people = $_POST['people'];
+            
+                            // echo $start;
+            
+                            $offers = mysqli_query($conn, "SELECT * FROM oferty WHERE daty BETWEEN '$start' and '$end'  ");
 
-                $offers = mysqli_query($conn, "SELECT * FROM oferty WHERE date_start >= '$start' AND date_end<= '$end'");
-                if(!$offers){
-                    echo "<h3>Brak ofert z twoimi specyfikacjami</h3>";
-
-                }
-                while($offer = mysqli_fetch_row($offers)){
-                    print_r($offer);
-                    $kraj = mysqli_fetch_row(mysqli_query($conn,"SELECT Nazwa FROM kraje WHERE ID_kraje = $offer[id_kraj]"));
-                    echo "<div class='offer'><h2>".$kraj[0]."</h2><h3>".$offer['opis']."</h3><h3>od ".$offer['date_start']." do ".$offer['date_end']."</h3></div>";
-                }
-            }
-            ?>
+                            if(mysqli_num_rows($offers)<1){
+                               echo "<h3>Brak ofert z twoimi specyfikacjami</h3>";
+                            }
+                            while($offer = mysqli_fetch_array($offers)){
+                                // print_r($offer);
+                                $kraj = mysqli_fetch_row(mysqli_query($conn,"SELECT Nazwa FROM kraje WHERE ID_kraje = ".$offer['id_kraj'].""));
+                                echo "<div class='offer'><h2>".$kraj[0]."</h2><h3>".$offer['opis']."</h3><h3>".$offer['daty']."</h3></div>";
+                            }
+                        }
+                        ?>
+                    </form>
+                </div>
+            </div>
+            <div class='cart'>
+                <div class='checkout'>
+                    <h3>chekout</h3>
+                </div>
+            </div>
         </div>
     </main>
     <footer>

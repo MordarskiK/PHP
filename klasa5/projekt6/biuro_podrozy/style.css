@@ -154,10 +154,20 @@ main{
   grid-column: 1/5;
 }
 
+
 .offers{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.available>.offers{
+  display: block;
+}
+
+.available>.offers>form{
+  display: flex;
+  flex-direction: column !important;
 }
 
 .offer{
@@ -171,6 +181,10 @@ main{
 
 .offer:nth-child(even){
   text-align: right;
+}
+
+.available>.offers>form>.offer:nth-child(even){
+  text-align: left;
 }
 
 .offer:hover{
@@ -278,3 +292,14 @@ footer{
 }
 
 
+/* --------------tickets.php-------------- */
+
+.tickets{
+  display: flex;
+  
+}
+
+.checkout{
+  border: 1px solid var(--accent_DeepOceanBlue);
+  border-radius: 10px;
+}

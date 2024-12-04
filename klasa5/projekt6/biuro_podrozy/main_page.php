@@ -44,7 +44,7 @@ $_SESSION['log'] = true;
         </div>
         <div class="search">
             <form action="tickets.php" method="post">
-                <div class="where">
+                <!-- <div class="where">
                     <h2>Gdzie:</h2>
                 </div>
                 <div class="where_input"> 
@@ -60,7 +60,7 @@ $_SESSION['log'] = true;
                             }
                         ?>
                     </datalist>
-                </div>
+                </div> -->
                 
                 <div class="when">
                     <h2>Kiedy:</h2>
@@ -75,13 +75,13 @@ $_SESSION['log'] = true;
                         <input type="date" name="when_end">
                     </label>
                 </div>
-
+<!-- 
                 <div class="how_many">
                     <h2>Ile osób:</h2>    
                 </div>
                 <div class="how_many_input">
                     <input type="number" name="people" id="people">
-                </div>
+                </div> -->
                 <div class="search_btn_container">
                     <input type="submit" value="Szukaj" class="search_btn">
                 </div>
@@ -100,7 +100,7 @@ $_SESSION['log'] = true;
             ?>
         </div>
         <div class="quotes" id="about_us">
-            <h1>Turaj znajdziesz parę opini od naszych użytkowników:</h1>
+            <h1>Tutaj znajdziesz parę opini od naszych użytkowników:</h1>
             <?php
                 $opinie = mysqli_query($conn, "SELECT users.opinie FROM users WHERE users.id_user>2;");
 
