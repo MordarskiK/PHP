@@ -105,6 +105,11 @@ main{
   text-align: center;
 }
 
+.search>form>.alert{
+  grid-row: 3;
+  grid-column: 1/4;
+}
+
 .where{
   grid-row: 1;
   grid-column: 1;
@@ -167,7 +172,8 @@ main{
 
 .available>.offers>form{
   display: flex;
-  flex-direction: column !important;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .offer{
@@ -294,12 +300,3 @@ footer{
 
 /* --------------tickets.php-------------- */
 
-.tickets{
-  display: flex;
-  
-}
-
-.checkout{
-  border: 1px solid var(--accent_DeepOceanBlue);
-  border-radius: 10px;
-}

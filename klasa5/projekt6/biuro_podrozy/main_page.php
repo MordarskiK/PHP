@@ -2,9 +2,9 @@
 include 'server_connection.php';
 
 session_start();
+session_destroy();
 
 $_SESSION['log'] = true;
-
 
 ?>
 
@@ -44,7 +44,7 @@ $_SESSION['log'] = true;
         </div>
         <div class="search">
             <form action="tickets.php" method="post">
-                <!-- <div class="where">
+                <div class="where">
                     <h2>Gdzie:</h2>
                 </div>
                 <div class="where_input"> 
@@ -60,7 +60,7 @@ $_SESSION['log'] = true;
                             }
                         ?>
                     </datalist>
-                </div> -->
+                </div>
                 
                 <div class="when">
                     <h2>Kiedy:</h2>
@@ -75,16 +75,25 @@ $_SESSION['log'] = true;
                         <input type="date" name="when_end">
                     </label>
                 </div>
-<!-- 
+
                 <div class="how_many">
                     <h2>Ile osób:</h2>    
                 </div>
                 <div class="how_many_input">
                     <input type="number" name="people" id="people">
-                </div> -->
+                </div>
                 <div class="search_btn_container">
                     <input type="submit" value="Szukaj" class="search_btn">
                 </div>
+                <?php
+                if(empty($_POST['when_start']) || empty($_POST['when_end']) || empty($_POST['destination'] || empty($_POST['people']))){
+                    echo "<h3 class='alert'>Wykorzystaj wszystkie pola</h3>";
+                }else{
+                    $_SESSION['ticket'] = 'true';
+                    header("Location:tickets.php");
+                    exit();
+                }
+                ?>
             </form>
         </div>
         <div class="offers" id="offers">

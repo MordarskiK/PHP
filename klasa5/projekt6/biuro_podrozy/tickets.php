@@ -1,6 +1,7 @@
 <?php
 include 'server_connection.php';
 
+session_start();
 
 
 ?>
@@ -35,42 +36,41 @@ include 'server_connection.php';
     </header>
     <main>
         <div class='tickets'>
+            <h1>Dostępne oferty w podanym terminie</h1>
             <div class="available">
-                <h1>Dostępne oferty w podanym terminie</h1>
                 <div class='offers'>
-                    <form action="#" method="post">
+                    <?php
+                    if($_SESSION['ticket'] = 'true'){
+                        $destination = $_POST['destination'];   
+                        $start = $_POST['when_start'];
+                        $end = $_POST['when_end'];
+                        $people = $_POST['people'];
+                    }
+                    ?>
+                    <form action="bilet.php" method="post">
                         <?php
-                        if(empty($_POST['when_start']) || empty($_POST['when_end'])){
-                            header("Location:main_page.php");
-                            exit();
-                        }else{
-                            // $destination = $_POST['destination'];   
-                            $start = $_POST['when_start'];
-                            $end = $_POST['when_end'];
-                            // $people = $_POST['people'];
-            
-                            // echo $start;
-            
-                            $offers = mysqli_query($conn, "SELECT * FROM oferty WHERE daty BETWEEN '$start' and '$end'  ");
+                        $_SESSION['ticket'] = 'false';
+                        // echo $start;
+                        $kraj = mysqli_fetch_row(mysqli_query($conn, "SELECT id_kraje FROM kraje WHERE nazwa = '$destination'"))[0];
+                        $offers = mysqli_query($conn, "SELECT * FROM oferty WHERE daty BETWEEN '$start' AND '$end' AND id_kraj = $kraj AND miejsca>= $people");
 
-                            if(mysqli_num_rows($offers)<1){
-                               echo "<h3>Brak ofert z twoimi specyfikacjami</h3>";
-                            }
-                            while($offer = mysqli_fetch_array($offers)){
-                                // print_r($offer);
-                                $kraj = mysqli_fetch_row(mysqli_query($conn,"SELECT Nazwa FROM kraje WHERE ID_kraje = ".$offer['id_kraj'].""));
-                                echo "<div class='offer'><h2>".$kraj[0]."</h2><h3>".$offer['opis']."</h3><h3>".$offer['daty']."</h3></div>";
-                            }
+                        
+                        if(mysqli_num_rows($offers)<1){
+                            echo "<h3>Brak ofert z twoimi specyfikacjami</h3>";
                         }
+                        while($offer = mysqli_fetch_array($offers)){
+                            // print_r($offer);
+                            $kraj = mysqli_fetch_row(mysqli_query($conn,"SELECT Nazwa FROM kraje WHERE ID_kraje = ".$offer['id_kraj'].""));
+                            echo "<div class='offer'><h2>".$kraj[0]."</h2><h3>".$offer['opis']."</h3><h3>".$offer['daty']."</h3><input type='submit' value ='wybierz'></div>";
+                        }
+                       
+                        
+                        
                         ?>
                     </form>
                 </div>
             </div>
-            <div class='cart'>
-                <div class='checkout'>
-                    <h3>chekout</h3>
-                </div>
-            </div>
+        
         </div>
     </main>
     <footer>

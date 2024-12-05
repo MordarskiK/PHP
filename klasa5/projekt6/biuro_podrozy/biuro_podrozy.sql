@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2024 at 11:46 AM
--- Wersja serwera: 10.4.32-MariaDB
--- Wersja PHP: 8.2.12
+-- Generation Time: Dec 05, 2024 at 03:58 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `kraje`
+-- Table structure for table `bilety`
+--
+
+CREATE TABLE `bilety` (
+  `id_bilety` int(11) NOT NULL,
+  `id_oferty` int(11) DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kraje`
 --
 
 CREATE TABLE `kraje` (
@@ -39,12 +51,15 @@ CREATE TABLE `kraje` (
 INSERT INTO `kraje` (`ID_kraje`, `Nazwa`) VALUES
 (1, 'Polska'),
 (2, 'Grecja'),
-(3, 'Chorwacja');
+(3, 'Chorwacja'),
+(4, 'Francja'),
+(5, 'NIemcy'),
+(6, 'Czechy');
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `oferty`
+-- Table structure for table `oferty`
 --
 
 CREATE TABLE `oferty` (
@@ -52,24 +67,34 @@ CREATE TABLE `oferty` (
   `id_kraj` int(11) DEFAULT NULL,
   `opis` varchar(255) DEFAULT NULL,
   `daty` date DEFAULT NULL,
-  `cena` float NOT NULL
+  `cena` float NOT NULL,
+  `miejsca` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `oferty`
 --
 
-INSERT INTO `oferty` (`id_oferty`, `id_kraj`, `opis`, `daty`, `cena`) VALUES
-(1, 1, 'wakacje w Polsce jakich jeszcze nikt nie przeżył', '2024-12-23', 100.75),
-(2, 2, 'wakacje w Grecji jakich jeszcze nikt nie przeżył', '2025-01-16', 250.2),
-(3, 3, 'wakacje w Chorwacji jakich jeszcze nikt nie przeżył', '2024-12-25', 280),
-(4, 1, 'test opis', '2025-01-02', 25.99),
-(5, 2, 'jest fajnie', '2025-01-04', 290);
+INSERT INTO `oferty` (`id_oferty`, `id_kraj`, `opis`, `daty`, `cena`, `miejsca`) VALUES
+(1, 1, 'wakacje w Polsce jakich jeszcze nikt nie przeżył', '2024-12-23', 100.75, 2),
+(2, 2, 'wakacje w Grecji jakich jeszcze nikt nie przeżył', '2025-01-16', 250.2, 4),
+(3, 3, 'wakacje w Chorwacji jakich jeszcze nikt nie przeżył', '2024-12-25', 280, 3),
+(4, 1, 'test opis', '2025-01-02', 25.99, 1),
+(5, 2, 'jest fajnie', '2025-01-04', 290, 5),
+(6, 4, 'tekst', '2024-12-19', 22.6, 12),
+(7, 2, 'tekst', '2024-12-20', 24.2, 11),
+(8, 1, 'tekst', '2024-12-11', 21.11, 15),
+(9, 3, 'tekst', '2024-12-29', 200, 3),
+(10, 4, 'tekst', '2024-12-10', 211, 2),
+(11, 5, 'tekst', '2024-12-11', 30, 9),
+(12, 6, 'tekst', '2024-12-18', 39.14, 8),
+(13, 2, 'tekst', '2024-12-15', 40.12, 0),
+(14, 4, 'tekst', '2024-12-12', 35.55, 22);
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -91,24 +116,32 @@ INSERT INTO `users` (`id_user`, `name`, `pass`, `e_mail`, `opinie`) VALUES
 (5, 'temp', 'temp_pass', 'temp@gmail.com', 'Strona 10/10');
 
 --
--- Indeksy dla zrzutów tabel
+-- Indexes for dumped tables
 --
 
 --
--- Indeksy dla tabeli `kraje`
+-- Indexes for table `bilety`
+--
+ALTER TABLE `bilety`
+  ADD PRIMARY KEY (`id_bilety`),
+  ADD KEY `id_oferty` (`id_oferty`),
+  ADD KEY `id_user` (`id_user`);
+
+--
+-- Indexes for table `kraje`
 --
 ALTER TABLE `kraje`
   ADD PRIMARY KEY (`ID_kraje`);
 
 --
--- Indeksy dla tabeli `oferty`
+-- Indexes for table `oferty`
 --
 ALTER TABLE `oferty`
   ADD PRIMARY KEY (`id_oferty`),
   ADD KEY `id_kraj` (`id_kraj`);
 
 --
--- Indeksy dla tabeli `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`),
@@ -122,13 +155,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `kraje`
 --
 ALTER TABLE `kraje`
-  MODIFY `ID_kraje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_kraje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `oferty`
 --
 ALTER TABLE `oferty`
-  MODIFY `id_oferty` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_oferty` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -139,6 +172,13 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `bilety`
+--
+ALTER TABLE `bilety`
+  ADD CONSTRAINT `bilety_ibfk_1` FOREIGN KEY (`id_oferty`) REFERENCES `oferty` (`id_oferty`),
+  ADD CONSTRAINT `bilety_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
 
 --
 -- Constraints for table `oferty`

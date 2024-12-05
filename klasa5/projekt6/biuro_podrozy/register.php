@@ -68,16 +68,16 @@ include 'server_connection.php';
                             if(in_array($user,$checkDB)){
                                 echo "<h3>Podaj inną nazwę użytkownika</h3>";
                             }else{
-                                echo "<h3>cos poszlo nie tak</h3>";
-                                // $pass = $_POST['pass_register'];
-                                // $passCheck = $_POST['pass_register_check'];
-                                // if($pass != $passCheck){
-                                //     echo "hasła nie są takie same";
-                                // }else{
-                                //     echo "wszystko poszło";
-                                //     mysqli_query($conn, "CREATE USER '$user'@'localhost' identified BY '$pass'");
-                                //     mysqli_query($conn, "INSERT INTO users(name,pass,e_mail) VALUES('$user','$pass','$email')");
-                                // }
+                                // echo "<h3>cos poszlo nie tak</h3>";
+                                $pass = $_POST['pass_register'];
+                                $passCheck = $_POST['pass_register_check'];
+                                if($pass != $passCheck){
+                                    echo "hasła nie są takie same";
+                                }else{
+                                    echo "wszystko poszło";
+                                    mysqli_query($conn, "CREATE USER '$user'@'localhost' identified BY '$pass'");
+                                    mysqli_query($conn, "INSERT INTO users(name,pass,e_mail) VALUES('$user','$pass','$email')");
+                                }
                             }
                         }else{
                             echo "<h3>Wpisz poprawne dane</h3>";
