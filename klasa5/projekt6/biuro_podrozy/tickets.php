@@ -61,7 +61,7 @@ session_start();
                         while($offer = mysqli_fetch_array($offers)){
                             // print_r($offer);
                             $kraj = mysqli_fetch_row(mysqli_query($conn,"SELECT Nazwa FROM kraje WHERE ID_kraje = ".$offer['id_kraj'].""));
-                            echo "<div class='offer'><h2>".$kraj[0]."</h2><h3>".$offer['opis']."</h3><h3>".$offer['daty']."</h3><input type='submit' value ='wybierz'></div>";
+                            echo "<div class='offer'><h2>".$kraj[0]."</h2><h3>".$offer['opis']."</h3><h3>".$offer['daty']."</h3><button type='submit' value ='".$offer['id_oferty']."' name='pick'>Wybierz</button></div>";
                         }
                        
                         

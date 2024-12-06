@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2024 at 03:58 PM
+-- Generation Time: Dec 06, 2024 at 04:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,6 +32,13 @@ CREATE TABLE `bilety` (
   `id_oferty` int(11) DEFAULT NULL,
   `id_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bilety`
+--
+
+INSERT INTO `bilety` (`id_bilety`, `id_oferty`, `id_user`) VALUES
+(1, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -150,6 +157,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `bilety`
+--
+ALTER TABLE `bilety`
+  MODIFY `id_bilety` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `kraje`
