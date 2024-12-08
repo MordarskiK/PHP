@@ -51,8 +51,9 @@ session_start();
                         <?php
                         $_SESSION['ticket'] = 'false';
                         // echo $start;
-                        $kraj = mysqli_fetch_row(mysqli_query($conn, "SELECT id_kraje FROM kraje WHERE nazwa = '$destination'"))[0];
-                        $offers = mysqli_query($conn, "SELECT * FROM oferty WHERE daty BETWEEN '$start' AND '$end' AND id_kraj = $kraj AND miejsca>= $people");
+                        $kraj = mysqli_fetch_row(mysqli_execute_query($conn, "SELECT id_kraje FROM kraje WHERE nazwa = ?", [$destination]))[0];
+                        // $kraj = mysqli_fetch_row(mysqli_query($conn, "SELECT id_kraje FROM kraje WHERE nazwa = '$destination'"))[0];
+                        $offers = mysqli_execute_query($conn, "SELECT * FROM oferty WHERE daty BETWEEN ? AND ? AND id_kraj = ? AND miejsca>= ?",["$start","$end",$kraj,$people]);
 
                         
                         if(mysqli_num_rows($offers)<1){
